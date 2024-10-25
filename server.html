@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e73bcd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Style */
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Input and Button */
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            width: 25%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Task List Style */
+        ul {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #106dd7;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: rgb(52, 208, 203);
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: rgb(49, 216, 91);
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #c2890f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>update</h1>
+
+    <div class="input-container">
+        <input type="text" id="new-task" placeholder="Add a new task...">
+        <button id="add-btn">update</button>
+    </div>
+
+    <ul id="task-list">
+        <!-- Tasks will appear here -->
+    </ul>
+</div>
+
+<script>
+    // Select elements
+    const newTaskInput = document.getElementById('new-task');
+    const addBtn = document.getElementById('add-btn');
+    const taskList = document.getElementById('task-list');
+
+    // Function to add a new task
+    function addTask() {
+        const taskText = newTaskInput.value;
+
+        // Only add the task if the input is not empty
+        if (taskText.trim() !== "") {
+            // Create a new list item
+            const li = document.createElement('li');
+            li.textContent = taskText;
+
+            // Create a remove button
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = "Remove";
+            removeBtn.classList.add('remove-btn');
+
+            // Add event listener to remove the task
+            removeBtn.addEventListener('click', () => {
+                li.remove();
+            });
+
+            // Add the ability to mark tasks as complete
+            li.addEventListener('click', () => {
+                li.classList.toggle('completed');
+            });
+
+            // Append the button and the list item to the task list
+            li.appendChild(removeBtn);
+            taskList.appendChild(li);
+
+            // Clear the input field
+            newTaskInput.value = "";
+        }
+    }
+
+    // Event listener for the Add button
+    addBtn.addEventListener('click', addTask);
+
+    // Allow adding tasks with Enter key as well
+    newTaskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            addTask();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Directory</title>
+    <link rel="stylesheet" href="server.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6a55df;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #146b8a;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #8ee1a1;
+            color: rgb(160, 17, 179);
+            border: none;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: rgb(215, 197, 57);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>College Directory - Login</h2>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <select id="role" name="role">
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Admin">Administrator</option>
+        </select>
+        <center>
+        <button>
+        <a href="C:\Users\thiru\Downloads\server.html">login</a>
+        </button>
+        </center>
+
+        <p id="error-msg" class="error"></p>
+    </form>
+</div>
+</body>
+</html>
